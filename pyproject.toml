@@ -1,0 +1,15 @@
+[project]
+name = "proj01"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "agent-framework>=1.11.0",
+    "azure-ai-projects>=2.3.0",
+    "azure-ai-textanalytics>=5.4.0",
+    "azure-ai-transcription>=1.0.0",
+    "azure-cognitiveservices-speech>=1.50.0",
+    "azure-identity>=1.25.3",
+    "gradio>=6.20.0",
+]
