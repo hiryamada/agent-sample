@@ -1,14 +1,14 @@
 import asyncio
-from agent_framework_foundry import FoundryChatClient
+from agent_framework.foundry import FoundryAgent
 from azure.identity import AzureCliCredential
 import os
 
-client = FoundryChatClient(
-    credential=AzureCliCredential(),
-    model=os.environ["FOUNDRY_MODEL"],
+agent = FoundryAgent(
     project_endpoint=os.environ["FOUNDRY_PROJECT_ENDPOINT"],
+    credential=AzureCliCredential(),
+    agent_name="agent1",
 )
-agent = client.as_agent(name="agent1")
+
 session = agent.create_session()
 
 
