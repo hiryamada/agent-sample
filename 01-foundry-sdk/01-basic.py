@@ -3,18 +3,13 @@ from azure.ai.projects import AIProjectClient
 import os
 
 
-def main():
-    project = AIProjectClient(
-        endpoint=os.environ["FOUNDRY_PROJECT_ENDPOINT"], credential=AzureCliCredential()
-    )
-    openai = project.get_openai_client()
-    response = openai.responses.create(
-        input="こんにちは",
-        model=os.environ["FOUNDRY_MODEL"],
-        extra_body={"agent_reference": {"name": "agent1", "type": "agent_reference"}},
-    )
-    print(response.output_text)
-
-
-if __name__ == "__main__":
-    main()
+project = AIProjectClient(
+    endpoint=os.environ["FOUNDRY_PROJECT_ENDPOINT"], credential=AzureCliCredential()
+)
+openai = project.get_openai_client()
+response = openai.responses.create(
+    input="こんにちは",
+    model=os.environ["FOUNDRY_MODEL"],
+    extra_body={"agent_reference": {"name": "agent1", "type": "agent_reference"}},
+)
+print(response.output_text)

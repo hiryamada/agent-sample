@@ -3,11 +3,13 @@ from agent_framework.foundry import FoundryAgent
 from azure.identity import AzureCliCredential
 import os
 
+
 agent = FoundryAgent(
     project_endpoint=os.environ["FOUNDRY_PROJECT_ENDPOINT"],
     credential=AzureCliCredential(),
     agent_name="agent1",
 )
+
 
 session = agent.create_session()
 
@@ -26,5 +28,4 @@ async def main():
         print()
 
 
-if __name__ == "__main__":
-    asyncio.run(main())
+asyncio.run(main())

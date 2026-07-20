@@ -11,9 +11,7 @@ agent = FoundryAgent(
 
 
 async def main():
-    response = await agent.run("こんにちは！")
-    print(response)
+    print(await agent.run("こんにちは！"))
 
 
-if __name__ == "__main__":
-    asyncio.run(main())
+asyncio.run(main())
