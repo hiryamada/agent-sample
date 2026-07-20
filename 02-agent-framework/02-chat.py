@@ -11,10 +11,13 @@ agent = FoundryAgent(
 )
 
 
-session = agent.create_session()
+# create Agent Framework lightweight session (on memory)
+# session = agent.create_session()
 
 
 async def main():
+    # create a "conversation" on the agent (persisted)
+    session = await agent.create_conversation()
     while True:
         prompt = await asyncio.to_thread(input, "ユーザー: ")
         if prompt == "exit":
