@@ -10,13 +10,20 @@ client = FoundryChatClient(
 )
 agent = Agent(
     client=client,
-    name="agent2",
+    name="agent",
     instructions="日本語で回答",
 )
 
+session = agent.create_session()
+
 
 async def main():
-    print(await agent.run("こんにちは！あなたのお名前は？"))
+    while True:
+        prompt = input("ユーザー: ")
+        if prompt == "exit":
+            break
+        result = await agent.run(prompt, session=session)
+        print(f"エージェント: {result.text}")
 
 
 asyncio.run(main())
